@@ -1,0 +1,8 @@
+[INFO] [2018-06-13 18:10:10][com.eolinker.controller.ApiController]-----getApi-----
+.[INFO] [2018-06-13 18:10:13][com.eolinker.controller.TestController]----------post start-------------
+.[INFO] [2018-06-13 18:10:13][com.eolinker.controller.TestController]API info: {"apiRequestType":0,"apiName":"Company.test","updateUserID":4,"apiSuccessMockType":0,"mockConfig":"{\"rule\":\"\",\"type\":\"object\"}","mockRule":"[{\"paramKey\":\"\",\"paramType\":\"0\",\"$index\":0}]","apiMethodType":"3","apiMethod":"Company.test","apiURI":"execute","starred":0,"apiNoteRaw":"","projectID":7,"apiRequestRaw":"","apiFailureMock":"","apiNote":"","groupID":19,"apiUpdateTime":1528880504000,"apiProtocol":0,"apiRequestParamType":0,"apiFailureMockType":0,"mockResult":"{}","removed":0,"apiNoteType":0,"apiSuccessMock":"","apiID":41,"apiStatus":0}
+.[INFO] [2018-06-13 18:10:13][com.eolinker.controller.TestController]params info: {"ID":"1"}
+.[INFO] [2018-06-13 18:10:13][com.eolinker.controller.TestController]paramData info: {_DATA={"_METHOD":"Company.test","ID":"1"}, _METHOD=DataGridExecutor.fetch}
+.[INFO] [2018-06-13 18:10:15][com.eolinker.controller.TestController]post return map :{"testDeny":2567,"testHttpCode":500,"testID":176,"testResult":{"body":"I/O error on POST request for \"http://execute\": execute; nested exception is java.net.UnknownHostException: execute"},"statusCode":"000000"}
+.[INFO] [2018-06-13 18:10:15][com.eolinker.controller.TestController]----------post end-------------
+.
