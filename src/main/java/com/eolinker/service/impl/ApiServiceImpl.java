@@ -546,7 +546,6 @@ public class ApiServiceImpl implements ApiService {
 	@Override
 	public Map<String, Object> getApi(Integer projectID, Integer apiID, HttpServletRequest request) {
 		// TODO Auto-generated method stub
-
 		Map<String, Object> result = apiMapper.getApi(projectID, apiID);
 		Map<String, Object> apiJson = JSONObject.parseObject(result.get("apiJson").toString());
 		if (apiJson != null && !apiJson.isEmpty()) {
@@ -569,9 +568,11 @@ public class ApiServiceImpl implements ApiService {
 			baseInfo.put("topParentGroupID", topParentGroupID);
 			apiJson.put("baseInfo", baseInfo);
 			Map<String, Object> mockInfo = (JSONObject) apiJson.get("mockInfo");
-			mockInfo.put("mockURL", request.getScheme() + "://" + request.getServerName() + ":"
-					+ request.getServerPort() + request.getContextPath() + "/Mock/mock?" + mockCode);
-			apiJson.put("mockInfo", mockInfo);
+			if (mockInfo != null) {
+				mockInfo.put("mockURL", request.getScheme() + "://" + request.getServerName() + ":"
+						+ request.getServerPort() + request.getContextPath() + "/Mock/mock?" + mockCode);
+				apiJson.put("mockInfo", mockInfo);
+			}
 			List<Map<String, Object>> testHistoryList = testHistoryMapper.getTestHistoryList(projectID, apiID);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			for (Map<String, Object> list : testHistoryList) {
@@ -587,6 +588,7 @@ public class ApiServiceImpl implements ApiService {
 				list.put("resultInfo", JSONObject.parse(list.get("resultInfo").toString()));
 			}
 			apiJson.put("testHistory", testHistoryList);
+
 		}
 		return apiJson;
 	}
